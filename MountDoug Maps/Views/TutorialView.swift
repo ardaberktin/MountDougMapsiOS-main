@@ -11,6 +11,9 @@ struct TutorialView: View {
     @State private var showingPopover1 = false
     @State private var showingPopover2 = false
     @State private var showingPopover3 = false
+    @State private var currentZoom = 0.0
+    @State private var finalZoom = 1.0
+    
     
     var body: some View {
         VStack (spacing: 30){
@@ -75,22 +78,34 @@ struct TutorialView: View {
                         .padding(.top, 10)
                        
                 }.popover(isPresented: $showingPopover2) {
-                        
-                    Text("Second Floor")
-                        .font(.headline)
-                        .padding(.top, 20)
-                        .padding(.bottom, 10)
-                    
-                    
-                        Image("MiddleStairs1")
-                            .resizable()
-                            .scaledToFit()
-                            .pinchToZoom()
-                        
-                        Image("MiddleStairs2")
-                            .resizable()
-                            .scaledToFit()
-                            .pinchToZoom()
+                   
+                    ZStack{
+                        ScrollView{
+                            
+                            Text("Second Floor")
+                                .font(.headline)
+                                .padding(.top, 20)
+                                .padding(.bottom, 10)
+                            
+                            Image("MiddleStairs1")
+                                .resizable()
+                                .scaledToFit()
+                                .scaleEffect(currentZoom + finalZoom)
+                                .pinchToZoom()
+                            
+                            Text("To get to the second floor there are 4 stairs you can use. The one shown on this map is the closest one to the front entrance.")
+                                .font(.headline)
+                                .padding(.top, 20)
+                                .padding(.bottom, 10)
+                                .padding(.leading, 20)
+                                .padding(.trailing, 20)
+                            
+                            Image("MiddleStairs2")
+                                .resizable()
+                                .scaledToFit()
+                                .pinchToZoom()
+                        }
+                    }
                     
                     Spacer()
                 }

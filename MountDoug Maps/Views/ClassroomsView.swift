@@ -44,7 +44,7 @@ struct ClassroomsView: View {
                                 
                                 ForEach(searchResults, id: \.self) { room in
                                     if room == 1 {
-                                        NavigationLink("Map of the First Floor", value: 1)
+                                        NavigationLink("Level 1: Map of the First Floor", value: 1)
                                             .padding(6)
                                             .id(1)
                                             .onAppear(){
@@ -57,7 +57,7 @@ struct ClassroomsView: View {
                                     }//if 1
                                     
                                     if room == 2 {
-                                        NavigationLink("Map of the Second Floor", value: 1)
+                                        NavigationLink("Level 2: Map of the Second Floor", value: 1)
                                             .padding(6)
                                             .id(1)
                                             .onAppear(){
@@ -188,7 +188,8 @@ struct ClassroomsView: View {
                 
         }//NavigationStack
         .padding(0)
-        .searchable(text: $searchRooms)
+        .searchable(text: $searchRooms, prompt: "Search by number")
+        .keyboardType(.numberPad)
     }//body
     
     var searchResults: [Int] {

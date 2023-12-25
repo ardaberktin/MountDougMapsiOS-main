@@ -12,9 +12,9 @@ struct MapView: View {
     
     var navText: String {
             if number == 1 {
-                return "Map of the First Floor"
+                return "Level 1: Map of the First Floor"
             } else if number == 2 {
-                return "Map of the Second Floor"
+                return "Level 2: Map of the Second Floor"
             } else {
                 return "Room: \(number)"
             }

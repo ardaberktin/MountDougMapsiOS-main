@@ -27,7 +27,7 @@ struct ClassroomsView: View {
                 ScrollViewReader { proxy in
                         
                    // if  isTextOn {
-                        Text("Please click on the room you would like to find.")
+                        Text("Please select your destination.")
                             .padding(.leading, 21)
                             .padding(.top, 10)
                             .frame(maxWidth: .infinity,maxHeight:30, alignment: .leading)
